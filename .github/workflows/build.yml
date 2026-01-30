@@ -314,10 +314,11 @@ jobs:
       - name: Create zip
         run: |
           cd "$CONFIG"
+          mkdir AnyKernel3
           cp out/msm-5.4-lahaina-qgki/dist/Image AnyKernel3/
           # cat out/msm-5.4-lahaina-qgki/dist/*.dtb > AnyKernel3/dtb
           # cp out/msm-5.4-lahaina-qgki/dist/dtbo.img AnyKernel3/
-          cd AnyKernel3/ && zip -r9 OP9P-$(/bin/date -u '+%d%m%Y%I%M')-clang.zip * -x .git README.md ./*/placeholder
+          cd AnyKernel3/ && zip -r9 OP9P-$(/bin/date -u '+%d%m%Y%I%M')-clang.zip *
           cd ../
 
       - name: Archive Kernel Source
